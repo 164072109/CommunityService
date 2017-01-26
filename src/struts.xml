@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<package name="test" extends="json-default">
+		<interceptors>
+			<interceptor name="myInterceptor" class="com.intercept.Intercept" />
+			<interceptor-stack name="default">
+				<interceptor-ref name="myInterceptor">
+					<param name="excludeMethods">checkUser,execute</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="default" />
+		<global-results>
+			<result name="login" type="redirect">login.jsp</result>
+		</global-results>
+		<action name="user" class="com.action.UserAction">
+			<result name="success1" type="redirect">/view/user/main.jsp</result>
+			<result name="success2" type="redirect">/view/emp/main2.jsp</result>
+			<result name="success3">/view/admin/main3.jsp</result>
+			<result name="yuyue">/view/user/yyxq.jsp</result>
+			<result name="showOrder">/view/user/order.jsp</result>
+			<result name="deleteOrder" type="redirectAction">user!showOrder2</result>
+			<result name="editOrder">/view/user/edit.jsp</result>
+			<result name="submitEdit">/view/user/ok.jsp</result>
+			<result name="comment">/view/user/comment.jsp</result>
+			<result name="comment2" type="redirectAction">user!showOrder1?flag=1</result>
+			<result name="showInfo">/view/user/personInfo.jsp</result>
+			<result name="logout" type="redirect">login.jsp</result>
+		</action>
+		<action name="serve" class="com.action.ServeAction">
+			<result name="showInfo">/view/user/tab.jsp</result>
+			<result name="ordered">/view/user/ok.jsp</result>
+			<result name="showOrder">/view/emp/tab2.jsp</result>
+			<result name="showOrder2">/view/emp/tab2.jsp</result>
+			<result name="showOrderInfo">/view/emp/yyxq2.jsp</result>
+			<result name="replyOrder">/view/emp/ok2.jsp</result>
+			<result name="showServe">/view/admin/tab3.jsp</result>
+			<result name="deleteServe">/view/admin/ok3.jsp</result>
+			<result name="updateServe">/view/admin/updateServe.jsp</result>
+			<result name="submitUpdate">/view/admin/ok3.jsp</result>
+			<result name="input">/view/admin/updateServe.jsp</result>
+			<result name="addServe">/view/admin/updateServe.jsp</result>
+		</action>
+		<action name="employee" class="com.action.EmployeeAction">
+			<result name="serveApply">/view/emp/serveList.jsp</result>
+			<result name="serveApply2" type="redirectAction">employee!serveApply</result>
+			<result name="showComment">/view/emp/yyxq2.jsp</result>
+			<result name="showInfo">/view/emp/empInfo.jsp</result>
+			<result name="submitPinfo">index.html</result>
+		</action>
+		<action name="admin" class="com.action.AdminAction">
+			<result name="serveApply">/view/admin/serveApply.jsp</result>
+			<result name="serveApply2" type="redirectAction">admin!serveApply</result>
+			<result name="delete">/view/admin/ok3.jsp</result>
+			<result name="deletes">/view/admin/ok3.jsp</result>
+			<result name="showUser">/view/admin/users.jsp</result>
+			<result name="editUser">/view/admin/EditUser.jsp</result>
+			<result name="showServe">view/admin/serve.jsp</result>
+			<result name="editServe">view/admin/EditService.jsp</result>
+			<result name="submitEdit" type="redirectAction">admin!showServe</result>
+			<result name="showOrder">view/admin/order.jsp</result>
+		</action>
+		<action name="register" class="com.action.RegisterAction">
+			<result name="success">login.jsp</result>
+			<result name="input">register.jsp</result>
+			<result name="submitEdit" type="redirectAction">admin!showUser</result>
+			<result name="updateInfo">index.html</result>
+		</action>
+	</package>
+</struts>    

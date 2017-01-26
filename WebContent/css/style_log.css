@@ -1,0 +1,41 @@
+@charset "utf-8";
+/*------------// Overall //------------------*/
+body{font:12px/180% Arial,Helvetica,Verdana;color:#5a5a5a; margin:0; background:#FFF;}
+body.login{ background:url(login_bgx.gif);}
+/*--login--*/
+.login_m{ width:403px; margin:0 auto; height:375px; margin-top:50px; }
+.login_boder{ background: url(login_m_bg.png) no-repeat ; background-size:400px 550px; height: 550px; overflow:hidden;}
+.login_padding{ padding:28px 47px 20px 47px ;}
+.rem_sub{margin-top: 10px;}
+.rem_sub input.sub_button{ float:right; width:122px; height:32px; background:url(site_bg.png) no-repeat -153px -850px; border:none; color:#FFF; padding-bottom:2px; font-size:14px; font-weight:bold;}
+.rem_sub input.sub_button:hover{ background-position:-153px -882px; cursor:pointer;}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+#img{
+	max-width: 120px;
+	max-height: 100px;
+}
